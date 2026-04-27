@@ -2,7 +2,7 @@ ExternalProject_Add(subrandr
     DEPENDS
         freetype2
         harfbuzz
-        fontconfig
+        #fontconfig
     GIT_REPOSITORY https://github.com/afishhh/subrandr.git
     SOURCE_DIR ${SOURCE_LOCATION}
     GIT_CLONE_FLAGS "--filter=tree:0"
