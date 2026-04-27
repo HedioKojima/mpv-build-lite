@@ -81,15 +81,12 @@ ExternalProject_Add(ffmpeg
         --disable-vaapi
         --disable-vdpau
         --disable-videotoolbox
-        --disable-ffplay
-        --disable-ffprobe
         --disable-encoder=opus
         --disable-encoder=libspeex
         --disable-decoder=libaom_av1
         ${ffmpeg_lto}
         --extra-cflags='-Wno-error=int-conversion'
         "--extra-libs='${ffmpeg_extra_libs}'" # -lstdc++ / -lc++ needs by libjxl and shaderc
-        --nvccflags='-gencode arch=compute_86,code=sm_86 -O3'
     BUILD_COMMAND ${MAKE}
     INSTALL_COMMAND ${MAKE} install
     LOG_DOWNLOAD 1 LOG_UPDATE 1 LOG_CONFIGURE 1 LOG_BUILD 1 LOG_INSTALL 1
