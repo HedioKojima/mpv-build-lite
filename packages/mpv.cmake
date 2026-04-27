@@ -1,20 +1,20 @@
 ExternalProject_Add(mpv
     DEPENDS
-        angle-headers
+        #angle-headers
         ffmpeg
         fribidi
         lcms2
         libarchive
         libass
-        libdvdnav
-        libdvdread
+        #libdvdnav
+        #libdvdread
         libiconv
         libjpeg
         libpng
         luajit
-        rubberband
+        #rubberband
         uchardet
-        mujs
+        #mujs
         vulkan
         shaderc
         libplacebo
@@ -37,12 +37,12 @@ ExternalProject_Add(mpv
         -Dlibmpv=true
         -Dpdf-build=enabled
         -Dlua=enabled
-        -Djavascript=enabled
+        -Djavascript=disabled
         -Dlibarchive=enabled
         -Dlibbluray=enabled
-        -Ddvdnav=enabled
+        -Ddvdnav=disabled
         -Duchardet=enabled
-        -Drubberband=enabled
+        -Drubberband=disabled
         -Dlcms2=enabled
         -Dopenal=disabled
         -Dspirv-cross=enabled
