@@ -1,34 +1,34 @@
 ExternalProject_Add(ffmpeg
     DEPENDS
-        amf-headers
-        avisynth-headers
+        #amf-headers
+        #avisynth-headers
         ${nvcodec_headers}
         bzip2
-        gmp
+        #gmp
         libass
         libbluray
-        libdvdnav
-        libdvdread
-        libmodplug
+        #libdvdnav
+        #libdvdread
+        #libmodplug
         libpng
         libsoxr
         libbs2b
         libzimg
-        libmysofa
-        fontconfig
+        #libmysofa
+        #fontconfig
         harfbuzz
-        opus
-        speex
-        x264
+        #opus
+        #speex
+        #x264
         libxml2
-        libvpl
+        #libvpl
         shaderc
         libplacebo
-        libzvbi
-        libaribcaption
+        #libzvbi
+        #libaribcaption
         dav1d
-        rubberband
-        libva
+        #rubberband
+        #libva
     GIT_REPOSITORY https://github.com/FFmpeg/FFmpeg.git
     SOURCE_DIR ${SOURCE_LOCATION}
     GIT_CLONE_FLAGS "--sparse --filter=tree:0"
@@ -44,41 +44,41 @@ ExternalProject_Add(ffmpeg
         --enable-runtime-cpudetect
         --enable-gpl
         --enable-version3
-        --enable-avisynth
-        --enable-gmp
+        --disable-avisynth
+        --disable-gmp
         --enable-libass
         --enable-libbluray
-        --enable-libdvdnav
-        --enable-libdvdread
+        --disable-libdvdnav
+        --disable-libdvdread
         --enable-libfreetype
         --enable-libfribidi
-        --enable-libfontconfig
+        --disable-libfontconfig
         --enable-libharfbuzz
-        --enable-libopus
+        --disable-libopus
         --enable-libsoxr
-        --enable-libspeex
+        --disable-libspeex
         --enable-libbs2b
-        --enable-librubberband
-        --enable-libx264
+        --disable-librubberband
+        --disable-libx264
         --enable-libdav1d
         --enable-libzimg
         --disable-mbedtls
         --enable-schannel
         --enable-libxml2
-        --enable-libmysofa
+        --disable-libmysofa
         --disable-libssh
         --disable-libsrt
-        --enable-libvpl
+        --disable-libvpl
         --enable-libplacebo
         --enable-libshaderc
-        --enable-libzvbi
-        --enable-libaribcaption
+        --disable-libzvbi
+        --disable-libaribcaption
         ${ffmpeg_cuda}
-        --enable-amf
+        --disable-amf
         --disable-doc
         --disable-ffplay
         --disable-ffprobe
-        --enable-vaapi
+        --disable-vaapi
         --disable-vdpau
         --disable-videotoolbox
         --disable-ffplay
@@ -89,6 +89,7 @@ ExternalProject_Add(ffmpeg
         ${ffmpeg_lto}
         --extra-cflags='-Wno-error=int-conversion'
         "--extra-libs='${ffmpeg_extra_libs}'" # -lstdc++ / -lc++ needs by libjxl and shaderc
+        --nvccflags='-gencode arch=compute_86,code=sm_86 -O3'
     BUILD_COMMAND ${MAKE}
     INSTALL_COMMAND ${MAKE} install
     LOG_DOWNLOAD 1 LOG_UPDATE 1 LOG_CONFIGURE 1 LOG_BUILD 1 LOG_INSTALL 1
