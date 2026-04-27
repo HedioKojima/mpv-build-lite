@@ -15,27 +15,27 @@ execute_process(COMMAND ${PREFIX_DIR}/src/get_latest_tag.sh
 
 ExternalProject_Add(mpv-release
     DEPENDS
-        angle-headers
+        #angle-headers
         ffmpeg
         fribidi
         lcms2
         libarchive
         libass
-        libdvdnav
-        libdvdread
+        #libdvdnav
+        #libdvdread
         libiconv
         libjpeg
         libpng
         luajit
-        rubberband
+        #rubberband
         uchardet
-        mujs
+        #mujs
         vulkan
         shaderc
         libplacebo
         spirv-cross
-        vapoursynth
-        libsdl2
+        #vapoursynth
+        #libsdl2
         subrandr
     URL ${LINK}
     SOURCE_DIR ${SOURCE_LOCATION}
@@ -53,13 +53,13 @@ ExternalProject_Add(mpv-release
         -Dlibmpv=true
         -Dpdf-build=enabled
         -Dlua=enabled
-        -Djavascript=enabled
-        -Dsdl2-gamepad=enabled
+        -Djavascript=disabled
+        -Dsdl2-gamepad=disabled
         -Dlibarchive=enabled
         -Dlibbluray=enabled
-        -Ddvdnav=enabled
+        -Ddvdnav=disabled
         -Duchardet=enabled
-        -Drubberband=enabled
+        -Drubberband=disabled
         -Dlcms2=enabled
         -Dopenal=disabled
         -Dspirv-cross=enabled
